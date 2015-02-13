@@ -1,0 +1,73 @@
+/*Nav bar css*/
+
+html {
+  font-family: "Helvetica Neue", Verdana, Arial, sans-serif;
+  background: #ecf0f1;
+}
+
+.site-title {
+  display: inline-block;
+  float: right;
+  margin-right: 5%;
+  font-size: 2em;
+}
+
+ul {
+  list-style-type:none;
+  margin:0;
+  padding:0;
+  position: absolute;
+
+}
+
+
+li {
+  display: inline-block;
+  float: left;
+  margin-right: 5px;
+}
+
+li a {
+  display:block;
+  min-width:200px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  color: #fff;
+  background: #2f3036;
+  text-decoration: none;
+
+}
+
+li:hover a {
+  background: #1695A3;
+  color: black;
+  opacity: 0.9;
+}
+
+.site-title {
+  color: #0CA0B2;
+}
+
+
+
+/*Table css*/
+
+table.main {
+  position: relative;
+  width: 90%;
+  top: 5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-spacing: 15px;
+  text-align: left-justify;
+  
+}
+
+td {
+  padding: 3%;
+  border: solid;
+  width: 25%;
+  margin: 5%;
+}
+
