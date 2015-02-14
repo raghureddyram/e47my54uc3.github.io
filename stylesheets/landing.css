@@ -1,0 +1,56 @@
+/*Nav bar css*/
+
+
+html { 
+  background: url("../imgs/winter.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: "Helvetica Neue", Verdana, Arial, sans-serif;
+}
+
+
+ul {
+  margin-top: 18vh;
+  position: static;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+
+.site-title {
+  display: inline-block;
+  font-size: 3.1em;
+  font-family: 'Damion', cursive;
+  color: #1695A3;
+}
+
+li {
+  margin-top: 3em;
+  display: inline-block;
+}
+
+li a {
+  display:block;
+  min-width:300px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  color: #fff;
+  background: #2f3036;
+  text-decoration: none;
+  border-radius: 5px;
+
+}
+
+li:hover a {
+  background: #1695A3;
+  color: black;
+  opacity: 0.9;
+}
+
+
+
