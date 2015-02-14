@@ -65,19 +65,20 @@ table.main {
   top: 5em;
   margin-left: auto;
   margin-right: auto;
-  border-spacing: 15px;
+  border-spacing: 10px;
   text-align: left-justify;
 
 }
 
-td.preview {
-  display: block-inline;
+ .preview {
+  display: block;
   padding: 3%;
-  border: solid;
-  width: 30%;
-  max-height: 60%;
+  border: none;
+  width: 50%;
+  /*max-height: 60%;*/
   margin: 5%;
-
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 10px;
   
   overflow: hidden;
@@ -85,11 +86,12 @@ td.preview {
 
 }
 
-td:hover {
+.preview:hover {
   background: white;
   overflow-y: scroll;
-  width: 300px;
-  display: block;
+  width: 50vw;
+  display: block-inline;
+  max-height: 60%; /* toggle */
 }
 
 .picture {
