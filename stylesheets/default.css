@@ -16,7 +16,7 @@ html {
 }
 
 ul#nav {
-  list-style-type:none;
+  list-style-type: none;
   margin:0;
   padding:0;
   position: relative;
@@ -88,10 +88,16 @@ table.main {
   display: block;
 }
 
-
-
-/*Table CSS*/
-
+/*clickable table data*/
+td a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: #B25009;
+  padding: 0px;
+}
+/*end clickable data*/
 
  .preview {
   display: block;
