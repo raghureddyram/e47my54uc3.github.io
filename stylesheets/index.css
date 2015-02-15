@@ -3,12 +3,14 @@
 
 html { 
   background: url("../imgs/winter.jpg") no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
   font-family: "Helvetica Neue", Verdana, Arial, sans-serif;
 }
+
+
 
 
 ul {
@@ -52,5 +54,14 @@ li:hover a {
   opacity: 0.9;
 }
 
-
-
+/*@media screen and (max-width 400px) {
+    html { 
+    background: url("../imgs/winter.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: "Helvetica Neue", Verdana, Arial, sans-serif;
+  }
+}
+*/
