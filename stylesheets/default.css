@@ -33,7 +33,7 @@ li {
 }
 
 li a {
-  display:block;
+  display:inline-block;
   min-width:165px;
   height: 100px;
   text-align: center;
@@ -105,6 +105,23 @@ td a {
   color: #B25009;
   padding: 0px;
 }
+
+
+.mini-pic {
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  height: 100%;
+  
+}
+
+.expand {
+  text-decoration: bolder;
+  font-style: italic;
+  font-size: 1.2em;
+}
 /*end clickable data*/
 
  .preview {
@@ -137,8 +154,4 @@ td a {
   overflow: hidden;
 }
 
-img {
-  position: relative;
-  left: 100%;
-  margin-left: -200%;
-}
+
