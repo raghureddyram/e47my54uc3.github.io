@@ -31,9 +31,6 @@
   font-size: 1em;
 }
 
-article {
-  padding-bottom: 2%;
-}
 
 img#right-side-menu {
   float: right;
@@ -47,4 +44,8 @@ img#middle-menu {
   width: 60%;
   height: 60%;
   margin: 1%;
+}
+
+article {
+  padding-bottom: 2%;
 }
