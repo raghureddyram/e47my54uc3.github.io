@@ -88,6 +88,14 @@ table.main {
   display: block;
 }
 
+tr.break:last-child {
+
+  margin-left: auto;
+  width: 100%;
+  border: 2px solid white;
+  display: block;
+}
+
 /*clickable table data*/
 td a {
   display: block;
