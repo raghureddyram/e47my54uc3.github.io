@@ -55,7 +55,16 @@ li:hover a {
   color: #0CA0B2;
 }
 
+#main-menu {
+  margin-top: 2%;
+}
 
+/*main menu break*/
+li.break {
+  margin-top: 0%;
+  margin-left: 10%;
+  width: 80%;
+}
 
 /*Table css*/
 
@@ -63,13 +72,26 @@ table.main {
   
   position: relative;
   width: 90%;
-  top: 5em;
+  top: 4.5em;
   margin-left: auto;
   margin-right: auto;
   border-spacing: 10px;
   text-align: left-justify;
 
 }
+
+.break {
+  height: 0px;
+  margin-left: 17.5%;
+  width: 65%;
+  border: 1px solid white;
+  display: block;
+}
+
+
+
+/*Table CSS*/
+
 
  .preview {
   display: block;
@@ -81,7 +103,6 @@ table.main {
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
-  
   overflow: hidden;
  
 
