@@ -31,6 +31,10 @@
   font-size: 1em;
 }
 
+article {
+  padding-bottom: 2%;
+}
+
 img#right-side-menu {
   float: right;
   width: 30%;
@@ -38,7 +42,7 @@ img#right-side-menu {
   margin: 2%;
 }
 
-img#footer-menu {
+img#middle-menu {
   clear: both;
   width: 60%;
   height: 60%;
