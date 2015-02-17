@@ -1,0 +1,65 @@
+/* include your css here */
+
+header {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+body {
+    background-color: #34495e;
+    color: white;
+}
+
+.what {
+    padding: 38px 30px;
+    border: 1px solid black;
+    float: left;
+    width: 30%;
+    height: 30%;
+    border-radius: 5px;
+}
+
+.why {
+    padding: 30px;
+    border: 1px solid black;
+    float: right;
+    width: 30%;
+    height: 30%;
+    border-radius: 5px;
+}
+
+
+.bottom-left {
+    position: relative;
+    padding: 30px;
+    margin-top: 20%;
+    margin-left: 10%;
+    border: 1px solid black;
+    float: left;
+    width: 30%;
+    border-radius: 5px;
+}
+
+.bottom-right {
+    display: inline;
+    position: relative;
+    padding: 30px;
+    margin-top: 20%;
+    margin-right: 10%;
+    border: 1px solid black;
+    float: right;
+    width: 30%;
+    border-radius: 5px;
+}
+
+.reflection {
+    position: relative;
+    padding: 20px;
+    width: 80%;
+    margin-top: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
