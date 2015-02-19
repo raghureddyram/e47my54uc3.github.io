@@ -26,16 +26,16 @@
   <br>
   <p class="blog"> Now let's move on to hashes. Here's an example of a hash:</p>
   <blockquote class="blog"> a = Hash.new<br>
-=> {}<br>
-irb(main):003:0> a["hello"] = 3<br>
-=> 3<br>
-irb(main):004:0> a<br>
-=> {"hello"=>3}<br>
-irb(main):006:0> a["world"] = 365<br>
-=> 365<br>
-irb(main):007:0> a<br>
-=> {"hello"=>3, "world"=>365}<br>
-</blockquote>
+    => {}<br>
+    irb(main):003:0> a["hello"] = 3<br>
+    => 3<br>
+    irb(main):004:0> a<br>
+    => {"hello"=>3}<br>
+    irb(main):006:0> a["world"] = 365<br>
+    => 365<br>
+    irb(main):007:0> a<br>
+    => {"hello"=>3, "world"=>365}<br>
+    </blockquote>
   <p class="blog"> Hashes are somewhat similar to arrays in that they share a method for finding and retrieving information based on a set of square brackets.</p>
 
   <p class="blog"> Hashes, however, differ from Arrays in that its not uncommon for them to consist of heterogenous set of objects. Think of classes as a named array, only instead of referencing specific elements by index value or precedence, you're referencing them by key-value pairs of elements. I would create a hash that has a set of keys that themselves reference specific values associated with their cooresponding keys. These values may be of the same type or may be entirely different from each other - it wouldn't matter. The only relation that these values have that is of any importance is the relationship they have with their reference point: their key. If I wanted to, I could even reference an entire array within a hash as a desired value when called by a string key. </p>
