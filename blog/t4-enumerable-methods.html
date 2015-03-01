@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+  <title>Enumerable Cycle</title>
+  <meta charset="UTF-8">
+  <!-- <link rel="stylesheet" type="text/css" href="./../stylesheets/default.css"> -->
+  <link rel="stylesheet" type="text/css" href="https://e47my54uc3.github.io/stylesheets/blog-stylesheet.css">
+  <!-- <link rel="stylesheet" type="text/css" href="./../stylesheets/blog-stylesheet.css"> -->
+
+</head>
+<main>
+  <section>
+  <p class="title">Enumerable Cycle</p>
+  <p class="subtitle"></p>
+  <p class="date">3/1/2015</p>
+  </section>
+  <article>
+  <p class="blog">The Enumerable module is one of the most powerful modules available to ruby.<p>
+
+  <p class="blog">Many of the major ruby classes, including Array and Hash, mix in the enumerable module by default in order to make working with collections of objects much easier. Enumerable works by essentially defining a list of objects, and then setting an instruction for <em>each</em> item in said list. For this reason, in order to make an enumerable class of your own, you'll need to define a method.</p>
+   <blockquote class="blog">Object.each { yield }</blockquote> 
+   <p class="blog">The above will instruct what you want to do with each element in your collection upon iteration. </p>
+
+  <p class="blog">One interesting enumerable method that I'd like to talk about is the <strong>Enumerable#cycle</strong> method</p>
+
+  <blockquote class="blog">[1,2,3,20,3].cycle(2){|x| x}</blockquote>
+  <p class="blog"> Cycle can be thought of as multiple .each iterations through a collection. If you want to iterate through a collection 2 times, rather than performing an action with each, ending a loop, and then defining another action to be performed with each immediately afterwards I can use a single cycle method wherein I pass in the argument 2 to signify how many times I want to perform my iteration.</p>
+  <br>
+
+  <p class="blog"> Cycle can be used to manually create the combinations and permutation of a specific ordering, which makes it extremly valuable for creating algorithmic sequences and preventing unnecessary code bloat. The downside of using cycle can be that you can easily neglect to define when to break  out of a cycle unless you either pass in an integer argument as a parameter or you define within your block when to appropriately break.</p>
+
+  <p class="blog">Ruby's enumerable class has many handy methods that greatly reduce the amount of work the engineer has to manage in order to create a working product. This is one of the many reasons for why more and more companies are relying on ruby to create new, working prototypes and products.</p>
+ </article>
+   
+</main>

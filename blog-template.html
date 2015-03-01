@@ -1,22 +1,47 @@
 <!DOCTYPE html>
-<html>
 <head>
-  <title>Your page title here</title>
+  <title>CSS Design</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" type="text/css" href="http://e47my54uc3.github.io/stylesheets/blog-stylesheet.css">
+  <!-- <link rel="stylesheet" type="text/css" href="./../stylesheets/default.css"> -->
+  <link rel="stylesheet" type="text/css" href="https://e47my54uc3.github.io/stylesheets/blog-stylesheet.css">
+  <!-- <link rel="stylesheet" type="text/css" href="./../stylesheets/blog-stylesheet.css"> -->
+
 </head>
-<body>
-  <p class="title">Title</p>
-  <p class="subtitle">Subtitle</p>
-  <section class="blog">
-  <!--put blog here-->
-  In this challenge, you will be transforming our generic blog template into an actual template for you to use for each blog post moving forward.
 
-  This is a mandatory pairing challenge, which means you will need to work on it with a partner. This challenge should only take between 60 and 90 minutes so remember to time box!
+<main>
 
-  <p class="date">Today's Date</p>
+  <section>
+  <p class="title">Arrays v Hashes</p>
+  <p class="subtitle">"They're kind of a big deal.."</p>
+  <p class="date">2/18/2015</p>
   </section>
-</body>
-</html>
+  <article>
+  <p class="blog">There are a couple of fundamental classes of objects in Ruby that make programming with the language a <em>breeze</em>. These are the Array and Hash classes. <p>
 
+  <p class="blog">Arrays are basically ordered lists of elements, complete with numerical reference values known as indexes. Arrays are useful in that they make it easy to store, retrieve, and manipulate elements according to their precedence or relatave importance. Typically, arrays consist of a homogenous set of a single class of object. You would have no real reason to want to store a heterogenous group of elements in an array if you can just as easily create multiple homogenous arrays of different object classes.</p>
 
+  <p class="blog"> Here's an example of an array:</p>
+  <blockquote class="blog">[1,2,3,20,3]</blockquote>
+  <p class="blog"> In the array above there are 5 elements, with the first element being of class integer with an index of 0. In fact, every element is an integer. The last index value of 4 references the integer 3. Indexes will always start at 0 in ruby, which may seem odd but is actually quite common among programming languages.</p>
+  <br>
+  <p class="blog"> Now let's move on to hashes. Here's an example of a hash:</p>
+  <blockquote class="blog"> a = Hash.new<br>
+    => {}<br>
+    irb(main):003:0> a["hello"] = 3<br>
+    => 3<br>
+    irb(main):004:0> a<br>
+    => {"hello"=>3}<br>
+    irb(main):006:0> a["world"] = 365<br>
+    => 365<br>
+    irb(main):007:0> a<br>
+    => {"hello"=>3, "world"=>365}<br>
+    </blockquote>
+  <p class="blog"> Hashes are somewhat similar to arrays in that they share a method for finding and retrieving information based on a set of square brackets.</p>
+
+  <p class="blog"> Hashes, however, differ from Arrays in that its not uncommon for them to consist of heterogenous set of objects. Think of classes as a named array, only instead of referencing specific elements by index value or precedence, you're referencing them by key-value pairs of elements. I would create a hash that has a set of keys that themselves reference specific values associated with their cooresponding keys. These values may be of the same type or may be entirely different from each other - it wouldn't matter. The only relation that these values have that is of any importance is the relationship they have with their reference point: their key. If I wanted to, I could even reference an entire array within a hash as a desired value when called by a string key. </p>
+  <br>
+
+  <p class="blog">There's a lot more flexibility with hashes than there are with arrays, and for this reason it's not uncommon for hashes to be used when dealing with security issues in rails.</p>
+ </article>
+   
+</main>
