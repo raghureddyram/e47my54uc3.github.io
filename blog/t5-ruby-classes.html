@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+  <title>CSS Design</title>
+  <meta charset="UTF-8">
+  <!-- <link rel="stylesheet" type="text/css" href="./../stylesheets/default.css"> -->
+  <link rel="stylesheet" type="text/css" href="https://e47my54uc3.github.io/stylesheets/blog-stylesheet.css">
+  <!-- <link rel="stylesheet" type="text/css" href="./../stylesheets/blog-stylesheet.css"> -->
+
+</head>
+
+<main>
+
+  <section>
+  <p class="title">Ruby Classes</p>
+  <p class="subtitle">..something something.. witty.. "Get schooled!"</p>
+  <p class="date">3/8/2015</p>
+  </section>
+  <article>
+  <p class="blog">In a previous post I had introced the concepts of class while talking about Arrays and Hashes. What exactly <em>is</em> a class? Let's step back for a second and try to understand them from a high level.<p>
+
+    <p class="blog"> There are two basic paradigms by which programs are written these days: via Object Oriented programming and via Procedural programming. Procedural programming defines programs as a series of checklist items that must be executed in-sequence, in order to yield an end result. Object Oriented programming, however, describes programs as a collection of building blocks that have specific behaviors and attributes that then interact with each other in differing ways. When said building blocks, termed Classes in Ruby, happen to communicate with other Classes, a set of behaviors will execute depending on the interactions of the attributes involved in the communication. </p>
+
+  <p class="blog">In Ruby, unlike in other Object Oriented languages, Objects consist of both behaviors <em>as well</em> as attributes. Other languages, like Java, take care to decouple these concepts into separate 'types' of elements. Because Ruby is a little unique in that every element is considered an Object, every single element requires its own defined set of behaviors before it can exist. In order to create an element we'll then need to call for one specific <em>instance</em> of the element that will then require a number of attributes to be passed in. </p>
+
+  <p class="blog"> Let's walk through an example of a couple types of transportaion. Both cars and bikes are characterized as having certain default attributes: wheels, model, and year of production. Bikes not only differs from cars in the number of wheels they have, but they can differ from one another based on their individual models. We can create a basic object Class, called Transportation, that characterizes both bikes and cars in order to model this difference. In the process, we'll also ask the instances of our objects what they "are" by sending them a <strong>type</strong> message from which they will behave by reporting back information.</p>
+
+
+  <blockquote class="blog">
+  <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">Transportation</span>
+  <span style="color: #0000aa">attr_reader</span> <span style="color: #0000aa">:wheels</span>
+
+  <span style="color: #0000aa">def</span> <span style="color: #00aa00">initialize</span>(year, model, wheels)
+    <span style="color: #aa0000">@wheels</span> = wheels
+    <span style="color: #aa0000">@year</span> = year
+    <span style="color: #aa0000">@model</span> = model
+  <span style="color: #0000aa">end</span>
+
+  <span style="color: #0000aa">def</span> <span style="color: #00aa00">type</span>
+    <span style="color: #aa5500">&quot;This is a #{</span><span style="color: #aa0000">@year</span><span style="color: #aa5500">} #{</span><span style="color: #aa0000">@model</span><span style="color: #aa5500">}.&quot;</span>
+  <span style="color: #0000aa">end</span>
+  
+<span style="color: #0000aa">end</span>
+
+------
+
+bike = <span style="color: #aa0000">Transportation</span>.new(<span style="color: #009999">2005</span>, <span style="color: #aa5500">&quot;Mountain Bike&quot;</span>, <span style="color: #009999">2</span>)
+
+<span style="color: #00aaaa">p</span> bike.type
+
+=&gt; <span style="color: #aa5500">&quot;This is a 2005 Mountain Bike.&quot;</span>
+
+car = <span style="color: #aa0000">Transportation</span>.new(<span style="color: #009999">2012</span>, <span style="color: #aa5500">&quot;Chevy Camaro&quot;</span>, <span style="color: #009999">4</span>)
+
+<span style="color: #00aaaa">p</span> car.type
+
+=&gt; <span style="color: #aa5500">&quot;This is a 2012 Chevy Camaro.&quot;</span>
+
+<span style="color: #00aaaa">p</span> bike.wheels
+
+=&gt; <span style="color: #009999">2</span>
+
+<span style="color: #00aaaa">p</span> car.wheels
+
+=&gt; <span style="color: #009999">4</span>
+</pre></div>
+
+
+  </blockquote>
+
+  <p class="blog">There's a lot going on here. First, we define a number of attributes that are required for the class upon initial class creation - which are year, model, and wheels (hence located in an <strong>initialize</strong> method). Depending on what we want to do with each new creation of Transportation <strong>(termed an instance)</strong>, we've created behaviors that define what happens when the Ruby program interacts with each Transportation instance. Incidentally, these behaviors are what are known as <em>methods</em>, and that's what is between the <strong>def...end</strong> keywords. In this particular program we're doing nothing more than creating instances of transportaion, then asking the bike and car variables what they "are" and how many wheels they have by calling methods.</p>
+
+  <p class="blog">Classes are not really all that hard to understand. The hard part is trying to figure out how to create Classes that can both hold information as well as <em>change</em> over time as the scope of the program changes. We could just as easily have created seperate Car and Bike classes and gotten into much more detail if we really wanted to. This is, of course, where the creativity comes into play when deciding how best to engineer a solution to a problem.</p>
+ </article>
+   
+</main>
