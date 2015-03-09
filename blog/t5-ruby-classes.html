@@ -26,42 +26,42 @@
 
 
   <blockquote class="blog">
-  <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #0000aa">class</span> <span style="color: #00aa00; text-decoration: underline">Transportation</span>
-  <span style="color: #0000aa">attr_reader</span> <span style="color: #0000aa">:wheels</span>
+  <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Transportation</span>
+  <span style="color: #66d9ef">attr_reader</span> <span style="color: #e6db74">:wheels</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">:year</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">:model</span>
 
-  <span style="color: #0000aa">def</span> <span style="color: #00aa00">initialize</span>(year, model, wheels)
-    <span style="color: #aa0000">@wheels</span> = wheels
-    <span style="color: #aa0000">@year</span> = year
-    <span style="color: #aa0000">@model</span> = model
-  <span style="color: #0000aa">end</span>
+  <span style="color: #66d9ef">def</span> <span style="color: #a6e22e">initialize</span><span style="color: #f8f8f2">(year,</span> <span style="color: #f8f8f2">model,</span> <span style="color: #f8f8f2">wheels)</span>
+    <span style="color: #f8f8f2">@wheels</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">wheels</span>
+    <span style="color: #f8f8f2">@year</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">year</span>
+    <span style="color: #f8f8f2">@model</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">model</span>
+  <span style="color: #66d9ef">end</span>
 
-  <span style="color: #0000aa">def</span> <span style="color: #00aa00">type</span>
-    <span style="color: #aa5500">&quot;This is a #{</span><span style="color: #aa0000">@year</span><span style="color: #aa5500">} #{</span><span style="color: #aa0000">@model</span><span style="color: #aa5500">}.&quot;</span>
-  <span style="color: #0000aa">end</span>
+  <span style="color: #66d9ef">def</span> <span style="color: #a6e22e">type</span>
+    <span style="color: #e6db74">&quot;This is a #{</span><span style="color: #f8f8f2">year</span><span style="color: #e6db74">} #{</span><span style="color: #f8f8f2">model</span><span style="color: #e6db74">}.&quot;</span>
+  <span style="color: #66d9ef">end</span>
   
-<span style="color: #0000aa">end</span>
+<span style="color: #66d9ef">end</span>
 
-------
+<span style="color: #f92672">------</span>
 
-bike = <span style="color: #aa0000">Transportation</span>.new(<span style="color: #009999">2005</span>, <span style="color: #aa5500">&quot;Mountain Bike&quot;</span>, <span style="color: #009999">2</span>)
+<span style="color: #f8f8f2">bike</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">Transportation</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">new(</span><span style="color: #ae81ff">2005</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;Mountain Bike&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)</span>
 
-<span style="color: #00aaaa">p</span> bike.type
+<span style="color: #f8f8f2">p</span> <span style="color: #f8f8f2">bike</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">type</span>
 
-=&gt; <span style="color: #aa5500">&quot;This is a 2005 Mountain Bike.&quot;</span>
+<span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;This is a 2005 Mountain Bike.&quot;</span>
 
-car = <span style="color: #aa0000">Transportation</span>.new(<span style="color: #009999">2012</span>, <span style="color: #aa5500">&quot;Chevy Camaro&quot;</span>, <span style="color: #009999">4</span>)
+<span style="color: #f8f8f2">car</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">Transportation</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">new(</span><span style="color: #ae81ff">2012</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;Chevy Camaro&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">4</span><span style="color: #f8f8f2">)</span>
 
-<span style="color: #00aaaa">p</span> car.type
+<span style="color: #f8f8f2">p</span> <span style="color: #f8f8f2">car</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">type</span>
 
-=&gt; <span style="color: #aa5500">&quot;This is a 2012 Chevy Camaro.&quot;</span>
+<span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;This is a 2012 Chevy Camaro.&quot;</span>
 
-<span style="color: #00aaaa">p</span> bike.wheels
+<span style="color: #f8f8f2">p</span> <span style="color: #f8f8f2">bike</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">wheels</span>
 
-=&gt; <span style="color: #009999">2</span>
+<span style="color: #f92672">=&gt;</span> <span style="color: #ae81ff">2</span>
 
-<span style="color: #00aaaa">p</span> car.wheels
+<span style="color: #f8f8f2">p</span> <span style="color: #f8f8f2">car</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">wheels</span>
 
-=&gt; <span style="color: #009999">4</span>
+<span style="color: #f92672">=&gt;</span> <span style="color: #ae81ff">4</span>
 </pre></div>
 
 
