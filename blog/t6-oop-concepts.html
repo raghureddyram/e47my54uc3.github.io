@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<head>
+  <title>CSS Design</title>
+  <meta charset="UTF-8">
+  <!-- <link rel="stylesheet" type="text/css" href="./../stylesheets/default.css"> -->
+  <link rel="stylesheet" type="text/css" href="https://e47my54uc3.github.io/stylesheets/blog-stylesheet.css">
+  <!-- <link rel="stylesheet" type="text/css" href="./../stylesheets/blog-stylesheet.css"> -->
+
+</head>
+
+<main>
+
+  <section>
+  <p class="title">Blocks, Procs, and Lambdas</p>
+  <p class="subtitle"></p>
+  <p class="date">3/15/2015</p>
+  </section>
+  <article>
+  <p class="blog">Blocks, Procs, and Lambdas are principles in ruby that can be quite confusing to understand. They're really not all that dissimilar, but knowing when and when not to use one over the other will greatly improve one's code.<p>
+
+  <p class="blog">There's a saying in Ruby that "everything is an object" that is not technically true. Technically, blocks, in Ruby are actually <em>not</em> objects, in that you cannot pass around a block as an argument. Blocks are like unnamed functions that exist within the scope of methods and can't be manipulated outside of the scope in which they're defined. In the example below, each is called on an array of integers with a block specified. The block of code is defined with its own do..end represented by curly braces.</p>
+
+  <blockquote class="blog">
+       <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">result</span> <span style="color: #f92672">=</span> <span style="color: #f92672">[]</span>
+<span style="color: #f92672">[</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">3</span><span style="color: #f92672">].</span><span style="color: #f8f8f2">each</span> <span style="color: #f8f8f2">{</span><span style="color: #f92672">|</span><span style="color: #f8f8f2">x</span><span style="color: #f92672">|</span> <span style="color: #f8f8f2">result</span> <span style="color: #f92672">&lt;&lt;</span> <span style="color: #f8f8f2">(x</span> <span style="color: #f92672">+</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)}</span>
+<span style="color: #f8f8f2">result</span>
+<span style="color: #f92672">----</span> 
+<span style="color: #f92672">=&gt;</span> <span style="color: #f92672">[</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">4</span><span style="color: #f92672">]</span>
+</pre></div>
+
+
+  </blockquote>
+
+  <p class="blog">
+  <p class="blog">If we were to take a look at the internals of the each method, it would look something like this:</p>
+   <blockquote class="blog"> 
+    <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">def</span> <span style="color: #a6e22e">each</span>
+  <span style="color: #ae81ff">0</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">upto(self</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">length</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">do</span> <span style="color: #f92672">|</span><span style="color: #f8f8f2">index</span><span style="color: #f92672">|</span>
+    <span style="color: #66d9ef">yield</span><span style="color: #f8f8f2">(</span> <span style="color: #f8f8f2">self</span><span style="color: #f92672">[</span><span style="color: #f8f8f2">index</span><span style="color: #f92672">]</span> <span style="color: #f8f8f2">)</span>
+  <span style="color: #66d9ef">end</span>
+<span style="color: #66d9ef">end</span>
+</pre></div>
+</blockquote>
+
+<p class="blog">Here, yield is used as the keyword that signifies to the each method exactly where and how to use a block and a block argument (which is an argument available solely within the scope of its defining block). If we instead wanted to name a block, pass it around to be used within multiple methods, and store as well as call the expression via a variable we can actually do so.. but only if we turn our block into a proc object. Here's our first example with a proc instead of a block:</p>
+
+<blockquote class="blog">
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">proc_obj</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">Proc</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">new{</span><span style="color: #f92672">|</span><span style="color: #f8f8f2">x</span><span style="color: #f92672">|</span> <span style="color: #f8f8f2">x</span><span style="color: #f92672">+=</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">}</span>
+<span style="color: #f92672">[</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">3</span><span style="color: #f92672">].</span><span style="color: #f8f8f2">map</span> <span style="color: #f92672">&amp;</span><span style="color: #f8f8f2">proc_obj</span>
+
+<span style="color: #f92672">----</span> 
+<span style="color: #f92672">=&gt;</span> <span style="color: #f92672">[</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">4</span><span style="color: #f92672">]</span>
+</pre></div>
+
+
+</blockquote>
+
+<p class="blog">So, while blocks are like unnamed functions and procs are like named blocks.. what are lambdas? Well lambdas behave almost exactly like procs in that they are thought of as similar to named blocks. The difference between a lambdas and procs has more to do with the way control flow keywords like return, break, raise, redo, and retry behave than how the code is written. When calling 'return' from within a block an operation will immediately stop and return from the scope of the defining method, thereby bypassing the remainder of any unevaluated code. The same is true for procs, but not for lambdas: </p>
+
+  
+  <blockquote class="blog">
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">def</span> <span style="color: #a6e22e">my_method_block_ex</span>
+  <span style="color: #f8f8f2">puts</span> <span style="color: #e6db74">&quot;before block&quot;</span>
+  <span style="color: #f92672">[</span><span style="color: #ae81ff">1</span><span style="color: #f92672">].</span><span style="color: #f8f8f2">each</span> <span style="color: #66d9ef">do</span> 
+    <span style="color: #f8f8f2">puts</span> <span style="color: #e6db74">&quot;inside block&quot;</span>
+   <span style="color: #66d9ef">return</span>
+  <span style="color: #66d9ef">end</span>
+  <span style="color: #f8f8f2">puts</span> <span style="color: #e6db74">&quot;after block&quot;</span>
+<span style="color: #66d9ef">end</span>
+ 
+<span style="color: #f8f8f2">my_method_block_ex</span>
+<span style="color: #f92672">----</span> 
+<span style="color: #f8f8f2">before</span> <span style="color: #f8f8f2">block</span>
+<span style="color: #f8f8f2">inside</span> <span style="color: #f8f8f2">block</span>
+<span style="color: #f92672">=&gt;</span> <span style="color: #66d9ef">nil</span>
+</pre></div>
+<br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">def</span> <span style="color: #a6e22e">my_method_proc_ex</span>
+  <span style="color: #f8f8f2">puts</span> <span style="color: #e6db74">&quot;before proc&quot;</span>
+  <span style="color: #f8f8f2">my_proc</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">Proc</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">new</span> <span style="color: #66d9ef">do</span>
+    <span style="color: #f8f8f2">puts</span> <span style="color: #e6db74">&quot;inside proc&quot;</span>
+    <span style="color: #66d9ef">return</span>
+  <span style="color: #66d9ef">end</span>
+  <span style="color: #f8f8f2">my_proc</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">call</span>
+  <span style="color: #f8f8f2">puts</span> <span style="color: #e6db74">&quot;after proc&quot;</span>
+<span style="color: #66d9ef">end</span>
+ 
+<span style="color: #f8f8f2">my_method_proc_ex</span>
+
+<span style="color: #f92672">----</span> 
+<span style="color: #f8f8f2">before</span> <span style="color: #f8f8f2">proc</span>
+<span style="color: #f8f8f2">inside</span> <span style="color: #f8f8f2">proc</span>
+<span style="color: #f92672">=&gt;</span> <span style="color: #66d9ef">nil</span>
+</pre></div>
+<br><br>
+
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">def</span> <span style="color: #a6e22e">my_method_lambda_ex</span>
+  <span style="color: #f8f8f2">puts</span> <span style="color: #e6db74">&quot;before lambda&quot;</span>
+  <span style="color: #f8f8f2">my_lambda</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">lambda</span> <span style="color: #66d9ef">do</span>
+    <span style="color: #f8f8f2">puts</span> <span style="color: #e6db74">&quot;inside lambda&quot;</span>
+    <span style="color: #66d9ef">return</span>
+  <span style="color: #66d9ef">end</span>
+  <span style="color: #f8f8f2">my_lambda</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">call</span>
+  <span style="color: #f8f8f2">puts</span> <span style="color: #e6db74">&quot;after lambda&quot;</span>
+<span style="color: #66d9ef">end</span>
+ 
+<span style="color: #f8f8f2">my_method_lambda_ex</span>
+
+<span style="color: #f92672">----</span> 
+<span style="color: #f8f8f2">before</span> <span style="color: #f8f8f2">lambda</span>
+<span style="color: #f8f8f2">inside</span> <span style="color: #f8f8f2">lambda</span>
+<span style="color: #f8f8f2">after</span> <span style="color: #f8f8f2">lambda</span>
+<span style="color: #f92672">=&gt;</span> <span style="color: #66d9ef">nil</span>
+</pre></div>
+
+
+  </blockquote>
+  <p class="blog"> The return within the lambda only dumps us out of the lambda itself and the enclosing method continues executing. Basically, the way that the <strong>return</strong> keyword and the <strong>break</strong> keyword are treated is the big difference between procs and lambdas as most of the other keywords behave as expected. Procs are more similar to blocks in they way they handle control, which is probably why there exists a 'to_proc' method that can conveniently turn blocks into procs through the use of an ampersand sign. 
+  </p>
+ </article>
+   
+</main>
