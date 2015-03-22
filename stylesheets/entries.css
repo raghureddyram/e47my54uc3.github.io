@@ -99,6 +99,7 @@ tr.break:last-child {
 
 /*clickable table data*/
 td a {
+  
   display: block;
   width: 100%;
   height: 100%;
