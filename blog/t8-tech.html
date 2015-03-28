@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+  <title>Regex</title>
+  <meta charset="UTF-8">
+  <!-- <link rel="stylesheet" type="text/css" href="./../stylesheets/default.css"> -->
+  <link rel="stylesheet" type="text/css" href="https://e47my54uc3.github.io/stylesheets/blog-stylesheet.css">
+  <!-- <link rel="stylesheet" type="text/css" href="./../stylesheets/blog-stylesheet.css"> -->
+
+</head>
+
+<main>
+
+  <section>
+  <p class="title">Regular Expressions</p>
+  <p class="date">3/28/2015</p>
+  </section>
+  <article>
+  <p class="blog">There's a pattern that computer programs sometimes use to parse strings that they're working with. This pattern can be thought of as a 'regular' set of expressions used to check and manipulate information. In fact, the entire PERL scripting language is based on this set of rules, or regular expressions. Both ruby and Javascript use regex to perform a number of operations. Here I'm going to talk a little bit about how they work.<p>
+
+  <p class="blog">Regular expressions are built between a set of backslash delimiters / /. Inside the delimiters, any set of characters that you place will be used to build a regular expression "match."</p>
+
+  <p class="blog"> For exmaple: Here's a simple ruby example asking to match a character 's' within a string variable holding the value of 'Here's my string':</p>
+  <blockquote class="blog">
+    <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">string</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;Here&#39;s my string&quot;</span>
+<span style="color: #f92672">=&gt;</span> <span style="color: #e6db74">&quot;Here&#39;s my string&quot;</span>
+<span style="color: #f8f8f2">string</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">match(</span><span style="color: #e6db74">/[s]/</span><span style="color: #f8f8f2">)</span>
+<span style="color: #f92672">=&gt;</span> <span style="color: #75715e">#&lt;MatchData &quot;s&quot;&gt;</span>
+
+
+<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">string</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">match(</span><span style="color: #e6db74">/[s]/</span><span style="color: #f8f8f2">)</span>
+  <span style="color: #f8f8f2">puts</span> <span style="color: #e6db74">&quot;Found an s!&quot;</span>
+<span style="color: #66d9ef">end</span>
+<span style="color: #66d9ef">Found</span> <span style="color: #f8f8f2">an</span> <span style="color: #f8f8f2">s!</span>
+<span style="color: #f92672">=&gt;</span> <span style="color: #66d9ef">nil</span>
+</pre></div>
+
+
+
+  </blockquote>
+  <p class="blog"> Since my regex found a match within the string variable for the character 's', I was able to execute my conditional logic asking the ruby program to output that I've found a string. You might notice that my string variable actually contains more than one 's'. With Regex, unless specified otherwise, the expression will match for the first successful match when parsing from left to right (in the same direction language is read and  most programs parse information). If I wanted to match for more than one s and hold that information I could create another program that matches agains "groups" of a single 's' character:</p>
+  <br>
+  
+  <blockquote class="blog"><!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">string</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">match(</span><span style="color: #e6db74">/(s)/</span><span style="color: #f8f8f2">)</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">to_a</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">length</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">2</span>
+   <span style="color: #f8f8f2">puts</span> <span style="color: #e6db74">&quot;There&#39;s only one s character!&quot;</span>
+<span style="color: #66d9ef">else</span>
+   <span style="color: #f8f8f2">puts</span> <span style="color: #e6db74">&quot;Found at least two s characters!&quot;</span>
+<span style="color: #66d9ef">end</span>
+
+<span style="color: #66d9ef">Found</span> <span style="color: #f8f8f2">at</span> <span style="color: #f8f8f2">least</span> <span style="color: #f8f8f2">two</span> <span style="color: #f8f8f2">s</span> <span style="color: #f8f8f2">characters!</span>
+<span style="color: #f92672">=&gt;</span> <span style="color: #66d9ef">nil</span>
+</pre></div>
+
+    </blockquote>
+  <p class="blog"> Using the parenthesis inside of the Regex delimiters will instruct that a program parse and then hold the matched data as independent variables. By converting my matched data into an array I was able to evaluate the number of s characters that were matched. If I had used square brackets as previously, I would only be able to check for a single s character at a time.</p>
+
+  <p class="blog"> Regular expressions can get pretty tricky and difficult to understand if they become too cumbersome.I think its best to keep use of regular expressions limited unless absolutely necessary, as they can make code difficult to read and work with.</p>
+  <br>
+
+  
+ </article>
+   
+</main>
