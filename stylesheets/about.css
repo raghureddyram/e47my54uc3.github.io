@@ -1,0 +1,161 @@
+/*Nav bar css*/
+
+html {
+  font-family: "Helvetica Neue", Verdana, Arial, sans-serif;
+  background: #C6EAF4;
+  color: #964D18;
+}
+
+.site-title {
+  display: inline-block;
+  position: relative;
+  float: right;
+  margin-right: 5%;
+  font-size: 3.1em;
+  font-family: 'Damion', cursive;
+  margin-top: .5em;
+}
+
+ul#nav {
+  list-style-type: none;
+  margin:0;
+  padding:0;
+  position: relative;
+
+}
+
+
+li {
+  display: inline-block;
+  float: left;
+  margin-right: 5px;
+  margin-bottom: 5px;
+
+}
+
+li a {
+  display:inline-block;
+  min-width:165px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  color: #fff;
+  background: #2f3036;
+  text-decoration: none;
+  border-radius: 5px;
+
+}
+
+li:hover a {
+  background: #1695A3;
+  color: black;
+  opacity: 0.9;
+}
+
+.site-title {
+  color: #0CA0B2;
+}
+
+#main-menu {
+  margin-top: 2%;
+}
+
+/*main menu break*/
+li.break {
+  margin-top: 0%;
+  margin-left: 10%;
+  width: 80%;
+}
+
+/*Table css*/
+
+table.main {
+  
+  position: relative;
+  width: 100%;
+  top: 4.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-spacing: 10px;
+  text-align: left-justify;
+
+}
+
+.break {
+  height: 0px;
+  margin-left: 17.5%;
+  width: 65%;
+  border: 1px solid white;
+  display: block;
+}
+
+.big-break{
+
+  margin-left: auto;
+  width: 100%;
+  border: 2px solid white;
+  display: block;
+}
+
+/*clickable table data*/
+td a {
+  
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: #A94E0B;
+  padding: 0px;
+}
+
+
+
+.expand {
+  text-decoration: bolder;
+  font-style: italic;
+  font-size: 1.2em;
+}
+/*end clickable data*/
+
+ .preview {
+  display: inline-block;
+  border: none;
+  width: 45%;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+
+}
+
+.preview:hover {
+  background: white;
+  overflow-y: none;
+  display: inline-block;
+  max-height: 110%; /* toggle */
+}
+
+#about-me{
+  background: white;
+  border-radius: 10px;
+  display: block;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+.title{
+  display: inline;
+  margin-left: 2%;
+  margin-right: 2%;
+  padding: 2%;
+}
+
+#contact{
+  margin-left: 0.5%;
+}
+
+
+
+
