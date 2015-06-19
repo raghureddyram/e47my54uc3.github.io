@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<head>
+  <title>Linked Lists</title>
+  <meta charset="UTF-8">
+  <!-- <link rel="stylesheet" type="text/css" href="./../stylesheets/default.css"> -->
+  <link rel="stylesheet" type="text/css" href="https://e47my54uc3.github.io/stylesheets/blog-stylesheet.css">
+  <!-- <link rel="stylesheet" type="text/css" href="./../stylesheets/blog-stylesheet.css"> -->
+
+</head>
+
+<main>
+
+  <section>
+  <p class="title">Linked Lists</p>
+  <p class="subtitle">Point to all of the.. jk. Point to one of the things at a time.</p>
+  <p class="date">6/18/2015</p>
+  </section>
+  <article>
+  
+
+  <p class="blog">In this post I'd like to describe how to implement a linked list in Ruby. Linked lists are concepts that are made up of two components: Node objects, and LinkedList objects. 
+  <br><br> 
+  A node object typically only has two components: the value that it is to hold, and an attribute that serves as a reference to the next node, if defined. The list object is instantiated with a single node by default, which is then referenced as the 'head' of the list. If you need to add a node to the list, then you'll need to make sure that your head is pointing to the appropriately added element, which means you must redefine which element comes next in the list object.<br><br>
+  Deleting a node object requires that you first locate the appropriate node, and then adjust the references to said node to point to the preceeding node. Once the nodes are referencing each other, the node is said to have been 'deleted', and then made available for garbage collection.</p>
+
+  <p class="blog">Linked List in Ruby:</p>
+
+  <blockquote class="blog">
+    <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">class</span> <span style="color: #a6e22e">Node</span>
+
+    <span style="color: #66d9ef">attr_accessor</span> <span style="color: #e6db74">:value</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">:next_node</span>
+
+    <span style="color: #66d9ef">def</span> <span style="color: #a6e22e">initialize</span> <span style="color: #f8f8f2">val,</span> <span style="color: #f8f8f2">next_in_line</span>
+        <span style="color: #f8f8f2">@value</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">val</span>
+        <span style="color: #f8f8f2">@next_nodex</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">next_in_line</span>
+        <span style="color: #f8f8f2">puts</span> <span style="color: #e6db74">&quot;Initialized a Node with value:  &quot;</span> <span style="color: #f92672">+</span> <span style="color: #f8f8f2">value</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">to_s</span> 
+    <span style="color: #66d9ef">end</span>
+<span style="color: #66d9ef">end</span>
+
+<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">LinkedList</span>
+
+    <span style="color: #66d9ef">def</span> <span style="color: #a6e22e">initialize</span> <span style="color: #f8f8f2">val</span>
+        <span style="color: #75715e"># Initialize a new node at the head</span>
+        <span style="color: #f8f8f2">@head</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">Node</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">new(val,</span><span style="color: #66d9ef">nil</span><span style="color: #f8f8f2">)</span>
+    <span style="color: #66d9ef">end</span>
+    
+    <span style="color: #66d9ef">def</span> <span style="color: #a6e22e">add</span><span style="color: #f8f8f2">(value)</span>
+        <span style="color: #75715e"># Traverse to the end of the list</span>
+        <span style="color: #75715e"># And insert a new node over there with the specified value</span>
+        <span style="color: #f8f8f2">current</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">@head</span>
+        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">current</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">next_node</span> <span style="color: #f92672">!=</span> <span style="color: #66d9ef">nil</span>
+            <span style="color: #f8f8f2">current</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">current</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">next_node</span>
+        <span style="color: #66d9ef">end</span> 
+        <span style="color: #f8f8f2">current</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">next_node</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">Node</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">new(value,</span><span style="color: #66d9ef">nil</span><span style="color: #f8f8f2">)</span>
+        <span style="color: #f8f8f2">self</span>    
+    <span style="color: #66d9ef">end</span>
+
+    <span style="color: #66d9ef">def</span> <span style="color: #a6e22e">delete</span><span style="color: #f8f8f2">(val)</span>
+        <span style="color: #f8f8f2">current</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">@head</span>
+        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">current</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">value</span> <span style="color: #f92672">==</span> <span style="color: #f8f8f2">val</span>
+            <span style="color: #75715e"># If the head is the element to be delete, the head needs to be updated</span>
+            <span style="color: #f8f8f2">@head</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">@head</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">next_node</span>
+        <span style="color: #66d9ef">else</span>
+            <span style="color: #75715e"># ... x -&gt; y -&gt; z</span>
+            <span style="color: #75715e"># Suppose y is the value to be deleted, you need to reshape the above list to :</span>
+            <span style="color: #75715e">#   ... x-&gt;z</span>
+            <span style="color: #75715e"># ( and z is basically y.next_node )</span>
+            <span style="color: #f8f8f2">current</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">@head</span>
+            <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(current</span> <span style="color: #f92672">!=</span> <span style="color: #66d9ef">nil</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">(current</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">next_node</span> <span style="color: #f92672">!=</span> <span style="color: #66d9ef">nil</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">((current</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">next_node)</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">value</span> <span style="color: #f92672">!=</span> <span style="color: #f8f8f2">val)</span>
+                <span style="color: #f8f8f2">current</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">current</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">next_node</span>
+            <span style="color: #66d9ef">end</span> 
+
+            <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(current</span> <span style="color: #f92672">!=</span> <span style="color: #66d9ef">nil</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">&amp;&amp;</span> <span style="color: #f8f8f2">(current</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">next_node</span> <span style="color: #f92672">!=</span> <span style="color: #66d9ef">nil</span><span style="color: #f8f8f2">)</span>
+                <span style="color: #f8f8f2">current</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">next_node</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(current</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">next_node)</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">next_node</span>
+            <span style="color: #66d9ef">end</span>
+        <span style="color: #66d9ef">end</span>
+    <span style="color: #66d9ef">end</span>
+    
+    <span style="color: #66d9ef">def</span> <span style="color: #a6e22e">display</span>
+        <span style="color: #75715e"># Traverse through the list till you hit the &quot;nil&quot; at the end</span>
+        <span style="color: #f8f8f2">current</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">@head</span>
+        <span style="color: #f8f8f2">full_list</span> <span style="color: #f92672">=</span> <span style="color: #f92672">[]</span> 
+        <span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">current</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">next_node</span> <span style="color: #f92672">!=</span> <span style="color: #66d9ef">nil</span> 
+            <span style="color: #f8f8f2">full_list</span> <span style="color: #f92672">+=</span> <span style="color: #f92672">[</span><span style="color: #f8f8f2">current</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">value</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">to_s</span><span style="color: #f92672">]</span>
+            <span style="color: #f8f8f2">current</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">current</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">next_node</span>
+        <span style="color: #66d9ef">end</span>
+        <span style="color: #f8f8f2">full_list</span> <span style="color: #f92672">+=</span> <span style="color: #f92672">[</span><span style="color: #f8f8f2">current</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">value</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">to_s</span><span style="color: #f92672">]</span>
+        <span style="color: #f8f8f2">puts</span> <span style="color: #f8f8f2">full_list</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">join(</span><span style="color: #e6db74">&quot;-&gt;&quot;</span><span style="color: #f8f8f2">)</span>
+    <span style="color: #66d9ef">end</span>
+
+<span style="color: #66d9ef">end</span>
+
+
+<span style="color: #66d9ef">class</span> <span style="color: #a6e22e">QueueLinkedList</span> <span style="color: #f92672">&lt;</span> <span style="color: #66d9ef">LinkedList</span>
+
+  <span style="color: #66d9ef">def</span> <span style="color: #a6e22e">pop</span>
+    <span style="color: #f8f8f2">node</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">@head</span>
+    <span style="color: #f8f8f2">@head</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">@head</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">next</span>
+    <span style="color: #f8f8f2">node</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">next</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">nil</span>
+    <span style="color: #66d9ef">return</span> <span style="color: #f8f8f2">node</span>
+  <span style="color: #66d9ef">end</span>
+
+<span style="color: #66d9ef">end</span>
+</pre></div>
+
+</blockquote>
+
+ </article>
+   
+</main>
